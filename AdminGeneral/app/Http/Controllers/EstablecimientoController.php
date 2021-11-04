@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Articulo;
+use App\models\Establecimiento;
 
-class ArticuloController extends Controller
+class EstablecimientoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        $articulos = Articulo::all();
-
-        return view('articulo.index')->with('articulos', $articulos);    
+        $establecimientos = Establecimiento::all();
+        
+        return view('establecimiento.index')->with('establecimientos', $establecimientos);
     }
 
     /**
@@ -26,7 +26,7 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        return view('articulo.create');
+        return view('establecimiento.create');
     }
 
     /**
@@ -37,16 +37,16 @@ class ArticuloController extends Controller
      */
     public function store(Request $request)
     {
-        $articulos = new Articulo();
+        $establecimientos = new Establecimiento();
 
-        $articulos->codigo = $request->get('codigo');
-        $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
-        $articulos->precio = $request->get('precio');
+        $establecimientos->nombre = $request->get('nombre');
+        $establecimientos->telefono = $request->get('telefono');
+        $establecimientos->encargado = $request->get('encargado');
+        //$establecimientos->direccion = $request->get('direccion');
 
-        $articulos->save();
+        $establecimientos->save();
 
-        return redirect('/articulos');    
+        return redirect('/establecimientos');
     }
 
     /**
@@ -68,9 +68,9 @@ class ArticuloController extends Controller
      */
     public function edit($id)
     {
-        $articulo = Articulo::find($id);
+        $establecimiento = Establecimiento::find($id);
 
-        return view('articulo.edit')->with('articulo', $articulo);    
+        return view('establecimiento.edit')->with('establecimiento', $establecimiento);
     }
 
     /**
@@ -82,16 +82,15 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $articulo = Articulo::find($id);
+        $establecimiento = Establecimiento::find($id);
 
-        $articulo ->codigo = $request->get('codigo');
-        $articulo->descripcion = $request->get('descripcion');
-        $articulo->cantidad = $request->get('cantidad');
-        $articulo->precio = $request->get('precio');
+        $establecimiento->nombre = $request->get('nombre');
+        $establecimiento->telefono = $request->get('telefono');
+        $establecimiento->encargado = $request->get('encargado');
 
-        $articulo->save();
+        $establecimiento->save();
 
-        return redirect('/articulos');  
+        return redirect('/establecimientos');
     }
 
     /**
@@ -102,11 +101,9 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
+        $establecimiento = Establecimiento::find($id);  
+        $establecimiento->delete();
 
-        $articulo = Articulo::find($id);    
-        $articulo->delete();
-
-        return redirect('/articulos');
-
+        return redirect('/establecimientos');
     }
 }
