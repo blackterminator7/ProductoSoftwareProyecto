@@ -9,10 +9,14 @@
     <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
             <th scope="col">Descripcion</th>
-            <th scope="col">Cantidad</th>
             <th scope="col">Precio</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Descuento</th>
+            <th scope="col">Empresa Proveedora</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -21,10 +25,14 @@
         @foreach ($articulos as $articulo)
         <tr>
             <td>{{ $articulo->id }}</td>
-            <td>{{ $articulo->codigo }}</td>
+            <td>{{ $articulo->nombre }}</td>
             <td>{{ $articulo->descripcion }}</td>
-            <td>{{ $articulo->cantidad }}</td>
             <td>{{ $articulo->precio }}</td>
+            <td>{{ $articulo->cantidad }}</td>
+            <td>{{ $articulo->marca }}</td>
+            <td>{{ $articulo->imagen }}</td>
+            <td>{{ $articulo->descuento}}</td>
+            <td>{{ $articulo->empresaProveedora }}</td>
             <td>
                 <form action="{{ route ('articulos.destroy', $articulo->id) }}" method="POST">
                 <a href="/articulos/{{ $articulo->id }}/edit" class="btn btn-info">Editar</a>
