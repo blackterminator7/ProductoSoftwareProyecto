@@ -17,5 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
+Route::resource('inventarios', 'App\Http\Controllers\InventariosController');
 
