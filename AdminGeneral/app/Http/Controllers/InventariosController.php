@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Inventario;
+use App\Models\Establecimiento;
 
 class InventariosController extends Controller
 {
@@ -15,9 +16,12 @@ class InventariosController extends Controller
     public function index()
     {
         $inventarios = Inventario::all();
+        $establecimientos = Establecimiento::all();
 
-        return view('inventario.index')->with('inventarios', $inventarios);
-    }
+        return view('inventario.index')
+                    ->with('inventarios' , $inventarios)
+                    ->with('establecimientos', $establecimientos);
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -26,7 +30,12 @@ class InventariosController extends Controller
      */
     public function create()
     {
-        return view('inventario.create');
+        $inventarios = Inventario::all();
+        $establecimientos = Establecimiento::all();
+
+        return view('inventario.create')
+                    ->with('inventarios' , $inventarios)
+                    ->with('establecimientos', $establecimientos);
     }
 
     /**
@@ -40,8 +49,8 @@ class InventariosController extends Controller
         $inventarios = new Inventario();
 
         $inventarios->tipo = $request->get('tipo');
-        //$inventarios->establecimiento = $request->get('establecimiento');
-
+        $inventarios->id_establecimientos = $request->get('id_establecimientos');
+    
         $inventarios->save();
 
         return redirect('/inventarios');   
@@ -67,8 +76,11 @@ class InventariosController extends Controller
     public function edit($id)
     {
         $inventario = Inventario::find($id);
+        $establecimiento = Establecimiento::all();
 
-        return view('inventario.edit')->with('inventario', $inventario);
+        return view('inventario.edit')
+                    ->with('inventario' , $inventario)
+                    ->with('establecimiento', $establecimiento);
     }
 
     /**
@@ -83,7 +95,7 @@ class InventariosController extends Controller
         $inventario = Inventario::find($id);
 
         $inventario->tipo = $request->get('tipo');
-        //$inventario->establecimiento = $request->get('establecimiento');
+        $inventario->id_establecimientos = $request->get('id_establecimiento');
 
         $inventario->save();
 

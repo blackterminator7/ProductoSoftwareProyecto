@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::resource('inventarios', 'App\Http\Controllers\InventariosController');
+Route::resource('establecimientos', 'App\Http\Controllers\EstablecimientoController');
 

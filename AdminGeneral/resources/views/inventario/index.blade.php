@@ -2,7 +2,7 @@
 
 @section('contenido')
 
-<a href="inventarios/create" class="btn btn-primary">CREAR</a>
+<a href="inventarios/create" class="btn btn-primary">CREAR INVENTARIO</a>
 
 <table class="table table-striped mt-4">
 
@@ -10,7 +10,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Tipo</th>
-            <!--th scope="col">Establecimiento</th-->
+            <th scope="col">Establecimiento</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -20,7 +20,7 @@
         <tr>
             <td>{{ $inventario->id }}</td>
             <td>{{ $inventario->tipo }}</td>
-            <!--<td>$inventario->id-establecimientos</td>-->
+            <td>{{ $inventario->id_establecimientos }}</td>
 
             <td>
                 <form action="{{ route ('inventarios.destroy', $inventario->id) }}" method="POST">
