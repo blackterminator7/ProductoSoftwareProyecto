@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Articulo extends Model
 {
     use HasFactory;
+
+    public function scopebuscarpor($query,$tipo,$texto){
+
+        if(($tipo)&&($texto))
+        {
+            return $query->where($tipo,'LIKE','%'.$texto.'%')->get();
+        }
+        return $query->select('id','codigo','descripcion','cantidad','precio')->get();
+    }
 }

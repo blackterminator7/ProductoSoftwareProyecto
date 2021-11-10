@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 //Ejemplos para rutas
 /* Route::get('/repuestos', 'App\Http\Controllers\RepuestoController@index');
 Route::post('/repuestos', 'App\Http\Controllers\RepuestoController@store'); 
