@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Articulo;
+use Illuminate\Support\Facades\DB;
 
 class ArticuloController extends Controller
 {
@@ -12,11 +13,18 @@ class ArticuloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articulos = Articulo::all();
+        $texto=trim($request->get('texto'));
 
-        return view('articulo.index')->with('articulos', $articulos);    
+        $tipo=trim($request->get('tipo'));
+
+       
+       $articulos = Articulo::buscarpor($tipo,$texto);
+        
+       return view('articulo.index')->with('articulos', $articulos); 
+      
+      
     }
 
     /**
@@ -24,9 +32,11 @@ class ArticuloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         return view('articulo.create');
+        
+       
     }
 
     /**
@@ -39,10 +49,14 @@ class ArticuloController extends Controller
     {
         $articulos = new Articulo();
 
-        $articulos->codigo = $request->get('codigo');
+        $articulos->nombre = $request->get('nombre');
         $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
         $articulos->precio = $request->get('precio');
+        $articulos->cantidad = $request->get('cantidad');
+        $articulos->marca = $request->get('marca');
+        $articulos->imagen = $request->get('imagen');
+        $articulos->descuento = $request->get('descuento');
+        $articulos->empresaProveedora = $request->get('empresaProveedora');
 
         $articulos->save();
 
@@ -73,6 +87,21 @@ class ArticuloController extends Controller
         return view('articulo.edit')->with('articulo', $articulo);    
     }
 
+    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function buscar()
+    {
+        $articulos = Articulo::all();
+
+        return view('articulo.buscar');    
+    }
+    
+    
+
     /**
      * Update the specified resource in storage.
      *
@@ -82,14 +111,18 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $articulo = Articulo::find($id);
+        $articuloss = Articulo::find($id);
 
-        $articulo ->codigo = $request->get('codigo');
-        $articulo->descripcion = $request->get('descripcion');
-        $articulo->cantidad = $request->get('cantidad');
-        $articulo->precio = $request->get('precio');
+        $articuloss->nombre = $request->get('nombre');
+        $articuloss->descripcion = $request->get('descripcion');
+        $articuloss->precio = $request->get('precio');
+        $articuloss->cantidad = $request->get('cantidad');
+        $articuloss->marca = $request->get('marca');
+        $articuloss->imagen = $request->get('imagen');
+        $articuloss->descuento = $request->get('descuento');
+        $articuloss->empresaProveedora = $request->get('empresaProveedora');
 
-        $articulo->save();
+        $articuloss->save();
 
         return redirect('/articulos');  
     }

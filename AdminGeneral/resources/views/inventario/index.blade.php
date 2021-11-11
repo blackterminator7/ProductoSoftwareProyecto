@@ -1,6 +1,17 @@
 @extends('layouts.plantillabase')
 
+@section('tittle', 'Inventarios')
+
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
+
+@section('nav')
+    @include('layouts.nav')
+@endsection
 
 <a href="inventarios/create" class="btn btn-primary">CREAR INVENTARIO</a>
 

@@ -1,6 +1,17 @@
 @extends('layouts.plantillabase')
 
+@section('tittle', 'Establecimientos')
+
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
+
+@section('nav')
+    @include('layouts.nav')
+@endsection
 
 <a href="establecimientos/create" class="btn btn-primary">CREAR</a>
 
@@ -21,10 +32,10 @@
         @foreach ($establecimientos as $establecimiento)
         <tr>
             <td>{{ $establecimiento->id }}</td>
-            <td>{{ $establecimiento->nombre }}</td>
+            <td>{{ $establecimiento->nombre_establecimiento }}</td>
             <td>{{ $establecimiento->telefono }}</td>
             <td>{{ $establecimiento->encargado }}</td>
-            <!--<td>$establecimiento->id-direcciones</td>-->
+            <!--<td>$establecimiento->municipio_id</td>-->
             <td>
                 <form action="{{ route ('establecimientos.destroy', $establecimiento->id) }}" method="POST">
                 <a href="/establecimientos/{{ $establecimiento->id }}/edit" class="btn btn-info">Editar</a>

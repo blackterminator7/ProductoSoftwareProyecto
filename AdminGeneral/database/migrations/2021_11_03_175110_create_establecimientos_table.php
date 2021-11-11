@@ -15,12 +15,13 @@ class CreateEstablecimientosTable extends Migration
     {
         Schema::create('establecimientos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',75);
+            $table->string('nombre_establecimiento',100);
             $table->string('telefono',15);
-            $table->string('encargado',75);
+            $table->string('encargado',50);
+            $table->string('direccion', 200);
             $table->timestamps();
-            //$table->integer('id_direcciones');
-            //$table->integer('id_direcciones')->references('id')->on('direcciones')->onUpdate('cascade')->onDelate('cascade');            
+            $table->unsignedBigInteger('municipio_id');
+            $table->foreign('municipio_id')->references('id')->on('municipios')->onDelete('cascade');      
         });
     }
 

@@ -39,10 +39,11 @@ class EstablecimientoController extends Controller
     {
         $establecimientos = new Establecimiento();
 
-        $establecimientos->nombre = $request->get('nombre');
+        $establecimientos->nombre_establecimiento = $request->get('nombre');
         $establecimientos->telefono = $request->get('telefono');
         $establecimientos->encargado = $request->get('encargado');
-        //$establecimientos->direccion = $request->get('direccion');
+        $establecimientos->direccion = $request->get('direccion');
+        /*$establecimientos->municipio_id = $request->get('municipio') ;*/
 
         $establecimientos->save();
 
@@ -84,9 +85,11 @@ class EstablecimientoController extends Controller
     {
         $establecimiento = Establecimiento::find($id);
 
-        $establecimiento->nombre = $request->get('nombre');
+        $establecimiento->nombre_establecimiento = $request->get('nombre');
         $establecimiento->telefono = $request->get('telefono');
         $establecimiento->encargado = $request->get('encargado');
+        $establecimiento->direccion = $request->get('direccion');
+        /*$establecimientos->municipio_id = $request->get('municipio') ;*/
 
         $establecimiento->save();
 
