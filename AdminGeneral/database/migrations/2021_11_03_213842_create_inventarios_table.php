@@ -16,9 +16,8 @@ class CreateInventariosTable extends Migration
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
             $table->string('tipo', 50);
-            $table->integer('id_establecimientos');
-            $table->foreign('id_establecimientos')->references('id')->on('establecimientos')->onUpdate('cascade')->onDelete('cascade');
-
+            $table->unsignedBigInteger('establecimiento_id');
+            $table->foreign('establecimiento_id')->references('id')->on('establecimientos')->onUpdate('cascade')->onDelete('cascade');    
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@
         <tr>
             <td>{{ $inventario->id }}</td>
             <td>{{ $inventario->tipo }}</td>
-            <td>{{ $inventario->id_establecimientos }}</td>
+            <td>{{ $inventario->establecimiento_id }}</td>
 
             <td>
                 <form action="{{ route ('inventarios.destroy', $inventario->id) }}" method="POST">

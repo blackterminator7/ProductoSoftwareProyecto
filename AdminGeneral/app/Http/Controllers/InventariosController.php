@@ -49,7 +49,7 @@ class InventariosController extends Controller
         $inventarios = new Inventario();
 
         $inventarios->tipo = $request->get('tipo');
-        $inventarios->id_establecimientos = $request->get('id_establecimientos');
+        $inventarios->establecimiento_id = $request->get('establecimiento_id');
     
         $inventarios->save();
 
@@ -95,7 +95,7 @@ class InventariosController extends Controller
         $inventario = Inventario::find($id);
 
         $inventario->tipo = $request->get('tipo');
-        $inventario->id_establecimientos = $request->get('id_establecimiento');
+        $inventario->establecimiento_id = $request->get('establecimiento_id');
 
         $inventario->save();
 
