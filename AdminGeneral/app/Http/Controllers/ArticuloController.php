@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Articulo;
+use Illuminate\Support\Facades\DB;
 
 class ArticuloController extends Controller
 {
@@ -12,10 +13,18 @@ class ArticuloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-       $articulos = Articulo::all();
-       return view('articulo.index')->with('articulos',$articulos);
+        $texto=trim($request->get('texto'));
+
+        $tipo=trim($request->get('tipo'));
+
+       
+       $articulos = Articulo::buscarpor($tipo,$texto);
+        
+       return view('articulo.index')->with('articulos', $articulos); 
+      
+      
     }
 
     /**
@@ -23,9 +32,11 @@ class ArticuloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         return view('articulo.create');
+        
+       
     }
 
     /**
@@ -75,6 +86,21 @@ class ArticuloController extends Controller
 
         return view('articulo.edit')->with('articulo', $articulo);    
     }
+
+    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function buscar()
+    {
+        $articulos = Articulo::all();
+
+        return view('articulo.buscar');    
+    }
+    
+    
 
     /**
      * Update the specified resource in storage.
