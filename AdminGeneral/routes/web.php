@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EstablecimientoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +20,5 @@ Route::get('/', function () {
 });
 
 Route::resource('establecimientos', 'App\Http\Controllers\EstablecimientoController');
+Route::get('/login', LoginController::class);
 
