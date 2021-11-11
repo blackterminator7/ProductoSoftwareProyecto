@@ -1,5 +1,12 @@
 @extends('layouts.plantillabase')
 
+@section('tittle', 'Editar')
+
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
 <h2>EDITAR REGISTROS DE RESPUESTOS</h2>
 <form action="/articulos/{{$articulo->id}}" method="POST">

@@ -24,3 +24,4 @@ Route::resource('establecimientos', 'App\Http\Controllers\EstablecimientoControl
 Route::get('/login', LoginController::class);
 //Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
 Route::resource('/articulos', ArticuloController::class);
+Route::resource('inventarios', 'App\Http\Controllers\InventariosController');

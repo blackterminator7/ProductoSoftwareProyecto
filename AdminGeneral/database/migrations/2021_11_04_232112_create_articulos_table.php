@@ -24,6 +24,8 @@ class CreateArticulosTable extends Migration
             $table->integer('descuento');
             $table->string('empresaProveedora', 100);
             $table->timestamps();
+            $table->unsignedBigInteger('inventario_id');
+            $table->foreign('inventario_id')->references('id')->on('inventarios')->onDelete('cascade');  
         });
     }
 
