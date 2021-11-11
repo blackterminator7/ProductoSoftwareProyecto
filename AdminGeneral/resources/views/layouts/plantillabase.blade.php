@@ -34,7 +34,7 @@
     </div>
     <!-- Footer -->
     <footer class="text-center pie-pagina footer">
-        Copyright &copy; 2021 <span style="color: blue" ;>ProductoSoftware</span>. Todos los derechos reservados.
+        Copyright &copy; 2021 <span style="color: blue" ;>BRV</span>. Todos los derechos reservados.
     </footer>
 
     <!-- Script -->

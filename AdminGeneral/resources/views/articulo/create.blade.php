@@ -1,5 +1,12 @@
 @extends('layouts.plantillabase')
 
+@section('tittle', 'Crear')
+
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
 <h2>CREAR REGISTROS DE REPUESTOS</h2>
 <form action="/articulos" method="POST">
@@ -31,7 +38,10 @@
     <div class="mb-3">
         <label for="" class="form-label">Imagen</label>
         <input id="imagen" name="imagen" type="text" class="form-control" tabindex="6">
-    </div>
+    </div> 
+    <!-- Aqui debe ser un input de tipo file, en donde lo que se guardara en la BD es la
+        direccion fisica de la imagen, en donde en el controlador tiene que guardar el archivo
+        subido (imagen) en lo que seria el servidor, cree una carpeta para mayor orden -->
 
     <div class="mb-3">
         <label for="" class="form-label">Descuento</label>

@@ -21,4 +21,5 @@ Route::get('/', function () {
 
 Route::resource('establecimientos', 'App\Http\Controllers\EstablecimientoController');
 Route::get('/login', LoginController::class);
+Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
 

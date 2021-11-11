@@ -25,7 +25,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tools"></i>Repuestos
+                <a class="nav-link" href="{{ url('/articulos') }}"><i class="fas fa-tools"></i>Repuestos
                 </a>
             </li>
             <li class="nav-item">

@@ -1,6 +1,17 @@
 @extends('layouts.plantillabase')
 
+@section('tittle', 'Repuestos')
+
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
+
+@section('nav')
+    @include('layouts.nav')
+@endsection
 
 <a href="articulos/create" class="btn btn-primary">CREAR</a>
 
