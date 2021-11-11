@@ -54,6 +54,8 @@ jQuery(document).ready(function($){
 		path = 'http://127.0.0.1:8000/login';
 	}else if ( seccion=='establecimientos'){
 		path = 'http://127.0.0.1:8000/establecimientos'
+	}else if ( seccion=='articulos'){
+		path = 'http://127.0.0.1:8000/articulos'
 	}
 
 	var target = $('#navbarSupportedContent ul li a[href="'+path+'"]');
