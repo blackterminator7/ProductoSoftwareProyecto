@@ -2,7 +2,8 @@
 
 @section('contenido')
 <h2>EDITAR REGISTROS DE RESPUESTOS</h2>
-<form action="/articulos/{{$articulo->id}}" method="POST">
+
+<form action="/articulos/{{$articulo->id}}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="mb-3">
@@ -31,12 +32,10 @@
     </div>
 
     <div class="mb-3">
-        <label for="" class="form-label">Imagen</label>
-        <input id="imagen" name="imagen" type="text" class="form-control" value="{{$articulo->imagen}}" tabindex="6">
+        <label for="imagen" class="form-label">Imagen</label>
+        <input id="imagen" name="imagen" type="file" class="form-control" value="{{$articulo->imagen}}" tabindex="6">
     </div>
-    <!-- Aqui debe ser un input de tipo file, en donde lo que se guardara en la BD es la
-        direccion fisica de la imagen, en donde en el controlador tiene que guardar el archivo
-        subido (imagen) en lo que seria el servidor, cree una carpeta para mayor orden -->
+    
 
     <div class="mb-3">
         <label for="" class="form-label">Descuento</label>

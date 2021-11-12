@@ -37,19 +37,27 @@ class ArticuloController extends Controller
     public function store(Request $request)
     {
         $articulos = new Articulo();
-
         $articulos->nombre = $request->get('nombre');
         $articulos->descripcion = $request->get('descripcion');
         $articulos->precio = $request->get('precio');
         $articulos->cantidad = $request->get('cantidad');
         $articulos->marca = $request->get('marca');
-        $articulos->imagen = $request->get('imagen');
+    //Proceso para guardar imagen
+      if($request->hasFile('imagen')){
+        $file = $request->file('imagen');
+        $destino = 'imagenesRepuestos/';
+        $nombreImagen =$file->getClientOriginalName();//El nombre con el que se guardaran las imagenes
+        $uploadSuccess= $request->file('imagen')->move($destino,$nombreImagen);
+        $articulos->imagen =$destino . $nombreImagen;
+       }
+
         $articulos->descuento = $request->get('descuento');
         $articulos->empresaProveedora = $request->get('empresaProveedora');
 
         $articulos->save();
 
-        return redirect('/articulos');    
+        return redirect('/articulos');
+       
     }
 
     /**
@@ -92,7 +100,14 @@ class ArticuloController extends Controller
         $articuloss->precio = $request->get('precio');
         $articuloss->cantidad = $request->get('cantidad');
         $articuloss->marca = $request->get('marca');
-        $articuloss->imagen = $request->get('imagen');
+        //Proceso para guardar imagen
+      if($request->hasFile('imagen')){
+        $file = $request->file('imagen');
+        $destino = 'imagenesRepuestos/';
+        $nombreImagen =$file->getClientOriginalName();//El nombre con el que se guardaran las imagenes
+        $uploadSuccess= $request->file('imagen')->move($destino,$nombreImagen);
+        $articuloss->imagen =$destino . $nombreImagen;
+       }
         $articuloss->descuento = $request->get('descuento');
         $articuloss->empresaProveedora = $request->get('empresaProveedora');
 

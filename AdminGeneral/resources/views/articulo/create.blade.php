@@ -9,7 +9,7 @@
 
 @section('contenido')
 <h2>CREAR REGISTROS DE REPUESTOS</h2>
-<form action="/articulos" method="POST">
+<form action="/articulos" method="POST" enctype="multipart/form-data" >
     @csrf
     <div class="mb-3">
         <label for="" class="form-label">Nombre</label>
@@ -36,13 +36,10 @@
         <input id="marca" name="marca" type="text" class="form-control" tabindex="5">
     </div>
     <div class="mb-3">
-        <label for="" class="form-label">Imagen</label>
-        <input id="imagen" name="imagen" type="text" class="form-control" tabindex="6">
+        <label for="imagen" class="form-label">Imagen</label>
+        <input id="imagen" name="imagen" type="file" class="form-control" tabindex="6" accept="image/*">
     </div> 
-    <!-- Aqui debe ser un input de tipo file, en donde lo que se guardara en la BD es la
-        direccion fisica de la imagen, en donde en el controlador tiene que guardar el archivo
-        subido (imagen) en lo que seria el servidor, cree una carpeta para mayor orden -->
-
+    
     <div class="mb-3">
         <label for="" class="form-label">Descuento</label>
         <input id="descuento" name="descuento" type="number" class="form-control" tabindex="7">

@@ -41,11 +41,16 @@
             <td>{{ $articulo->precio }}</td>
             <td>{{ $articulo->cantidad }}</td>
             <td>{{ $articulo->marca }}</td>
-            <td>{{ $articulo->imagen }}</td>
+            
+            <td>
+            <img src="{{asset($articulo->imagen)}}" alt="{{$articulo->imagen}}" class="img-fluid img-thumbnail" width ="60px">
+            </td>
+            
             <td>{{ $articulo->descuento}}</td>
             <td>{{ $articulo->empresaProveedora }}</td>
             <td>
-                <form action="{{ route ('articulos.destroy', $articulo->id) }}" method="POST">
+           
+                <form action="{{ route ('articulos.destroy', $articulo->id) }}" method="POST" >
                 <a href="/articulos/{{ $articulo->id }}/edit" class="btn btn-info">Editar</a>
                 @csrf
                 @method('DELETE')
