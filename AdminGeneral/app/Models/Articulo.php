@@ -15,6 +15,6 @@ class Articulo extends Model
         {
             return $query->where($tipo,'LIKE','%'.$texto.'%')->get();
         }
-        return $query->select('id','codigo','descripcion','cantidad','precio')->get();
+        return $query->select('id','nombre','descripcion','precio','cantidad','marca','imagen','descuento','empresaProveedora')->get();
     }
 }
