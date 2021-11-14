@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\ArticuloController;
 
 /*
@@ -18,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
+Route::resource('establecimientos', 'App\Http\Controllers\EstablecimientoController');
+Route::get('/login', LoginController::class);
 //Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
 Route::resource('/articulos', ArticuloController::class);

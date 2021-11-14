@@ -49,10 +49,14 @@ class ArticuloController extends Controller
     {
         $articulos = new Articulo();
 
-        $articulos->codigo = $request->get('codigo');
+        $articulos->nombre = $request->get('nombre');
         $articulos->descripcion = $request->get('descripcion');
-        $articulos->cantidad = $request->get('cantidad');
         $articulos->precio = $request->get('precio');
+        $articulos->cantidad = $request->get('cantidad');
+        $articulos->marca = $request->get('marca');
+        $articulos->imagen = $request->get('imagen');
+        $articulos->descuento = $request->get('descuento');
+        $articulos->empresaProveedora = $request->get('empresaProveedora');
 
         $articulos->save();
 
@@ -107,14 +111,18 @@ class ArticuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $articulo = Articulo::find($id);
+        $articuloss = Articulo::find($id);
 
-        $articulo ->codigo = $request->get('codigo');
-        $articulo->descripcion = $request->get('descripcion');
-        $articulo->cantidad = $request->get('cantidad');
-        $articulo->precio = $request->get('precio');
+        $articuloss->nombre = $request->get('nombre');
+        $articuloss->descripcion = $request->get('descripcion');
+        $articuloss->precio = $request->get('precio');
+        $articuloss->cantidad = $request->get('cantidad');
+        $articuloss->marca = $request->get('marca');
+        $articuloss->imagen = $request->get('imagen');
+        $articuloss->descuento = $request->get('descuento');
+        $articuloss->empresaProveedora = $request->get('empresaProveedora');
 
-        $articulo->save();
+        $articuloss->save();
 
         return redirect('/articulos');  
     }

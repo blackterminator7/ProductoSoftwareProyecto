@@ -1,24 +1,43 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>@yield('tittle')</title>
 
-    <title>Plantilla</title>
-  </head>
-  <body>
-    <h1 class="bg-primary text-white text-center">CRUD Laravel 8</h1>
+    <!-- Bootstrap y Jquery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <div class="container">
+    <!-- Archivos propios -->
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+
+    <!-- Fonts -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css'>
+    
+
+    <!-- Apartado para importar en herencia -->
+    @yield('import')
+
+</head>
+
+<body>
+    <!-- Header -->
+    @yield('nav')
+    <!-- Content -->
+    <div class="container-fluid pt-4">
         @yield('contenido')
     </div>
+    <!-- Footer -->
+    <footer class="text-center pie-pagina footer">
+        Copyright &copy; 2021 <span style="color: blue" ;>BRV</span>. Todos los derechos reservados.
+    </footer>
 
+    <!-- Script -->
+</body>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
 </html>
