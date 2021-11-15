@@ -56,6 +56,8 @@ jQuery(document).ready(function($){
 		path = 'http://127.0.0.1:8000/establecimientos'
 	}else if ( seccion=='articulos'){
 		path = 'http://127.0.0.1:8000/articulos'
+	}else if ( seccion=='inventarios'){
+		path = 'http://127.0.0.1:8000/inventarios'
 	}
 
 	var target = $('#navbarSupportedContent ul li a[href="'+path+'"]');

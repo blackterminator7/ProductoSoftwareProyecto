@@ -21,7 +21,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0);"><i class="fas fa-boxes"></i>Inventario
+                <a class="nav-link" href="{{ url('/inventarios') }}"><i class="fas fa-boxes"></i>Inventario
                 </a>
             </li>
             <li class="nav-item">
