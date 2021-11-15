@@ -17,27 +17,35 @@
 
 
 <h2>GESTIONAR RESPUESTOS</h2>
-<div class="col-xl-12">
-    <form action="{{ route('articulos.index') }}" method="get">
-        <div class="form-row">
-            <div class="col-sm-3 my-2">
-                <select name="tipo" class="form-control" id="exampleFormControlSelect1">
-                    <option>Buscar Por</option>
-                    <option>descripcion</option>
-                    <option>cantidad</option>
-                    <option>precio</option>
-                </select>
+            <div class="col-xl-12">
+                <form action="{{route('articulos.index')}}" method="get">
+                    <div class="form-row" >
+                        <div class="col-sm-3 my-2">      
+                            
+                            <select name="tipo" class="form-control" id="exampleFormControlSelect1">
+                                <option>Buscar Por</option>
+                                <option>nombre</option>
+                                <option>descripcion</option>
+                                <option>cantidad</option>
+                                <option>precio</option>
+                                <option>marca</option>
+                                <option>empresaProveedora</option>
+                               
+                            </select>  
+
+                        </div>
+                            
+                        <div class="col-sm-3 my-2">      
+                            <input type="text" class="form-control" name="texto" >
+                        </div>
+                        <div class="col-sm-3 my-2">
+                            <input type="submit" class="btn btn-info" value="Buscar">
+                        </div>             
+                    </div>
+                </form>
             </div>
 
-            <div class="col-sm-3 my-2">
-                <input type="text" class="form-control" name="texto">
-            </div>
-            <div class="col-sm-3 my-2">
-                <input type="submit" class="btn btn-info" value="Buscar">
-            </div>
-        </div>
-    </form>
-</div>
+
 
 <table class="table table-striped mt-4">
 
@@ -59,25 +67,26 @@
 
     <tbody>
         @foreach ($articulos as $articulo)
-            <tr>
-                <td>{{ $articulo->id }}</td>
-                <td>{{ $articulo->nombre }}</td>
-                <td>{{ $articulo->descripcion }}</td>
-                <td>{{ $articulo->precio }}</td>
-                <td>{{ $articulo->cantidad }}</td>
-                <td>{{ $articulo->marca }}</td>
-                <td>{{ $articulo->imagen }}</td>
-                <td>{{ $articulo->descuento }}</td>
-                <td>{{ $articulo->empresaProveedora }}</td>
-                <td>
-                    <form action="{{ route('articulos.destroy', $articulo->id) }}" method="POST">
-                        <a href="/articulos/{{ $articulo->id }}/edit" class="btn btn-info">Editar</a>
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                    </form>
-                </td>
-            </tr>
+        <tr>
+            <td>{{ $articulo->id }}</td>
+            <td>{{ $articulo->nombre }}</td> 
+            <td>{{ $articulo->descripcion }}</td>
+            <td>{{ $articulo->precio }}</td>
+            <td>{{ $articulo->cantidad }}</td>
+            <td>{{ $articulo->marca }}</td>
+            <td>{{ $articulo->imagen }}</td>
+            <td>{{ $articulo->descuento }}</td>
+            <td>{{ $articulo->empresaProveedora }}</td>
+
+            <td>
+                <form action="{{ route ('articulos.destroy', $articulo->id) }}" method="POST">
+                <a href="/articulos/{{ $articulo->id }}/edit" class="btn btn-info">Editar</a>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </td>
+        </tr>
         @endforeach
     </tbody>
 
