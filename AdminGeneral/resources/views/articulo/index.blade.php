@@ -20,8 +20,9 @@
             <div class="col-xl-12">
                 <form action="{{route('articulos.index')}}" method="get">
                     <div class="form-row" >
+                        <div class="col-sm-3 my-2">      
                             
-                            <select name="tipo" cllass="form-control" id="exampleFormControlSelect1">
+                            <select name="tipo" class="form-control" id="exampleFormControlSelect1">
                                 <option>Buscar Por</option>
                                 <option>nombre</option>
                                 <option>descripcion</option>
@@ -31,11 +32,13 @@
                                 <option>empresaProveedora</option>
                                
                             </select>  
+
+                        </div>
                             
                         <div class="col-sm-3 my-2">      
                             <input type="text" class="form-control" name="texto" >
                         </div>
-                        <div class="col-auto">
+                        <div class="col-sm-3 my-2">
                             <input type="submit" class="btn btn-info" value="Buscar">
                         </div>             
                     </div>
