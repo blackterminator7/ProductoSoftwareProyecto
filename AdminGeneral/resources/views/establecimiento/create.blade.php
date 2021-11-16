@@ -31,6 +31,25 @@
         <input id="direccion" name="direccion" type="text" class="form-control" tabindex="4">
     </div>
 
+    <div class="mb-3">
+    <label for="" class="form-label">Departamento</label>
+    <select class="form-control" name="departamento_id"  id="departamento">
+        @foreach($departamentos as $departamento)
+            <option value="{{$departamento->id}}"> {{ $departamento->nombre_departamento }} </option>
+        @endforeach
+    </select>
+    <div id="selectmunicipio"></div>
+    </div>
+
+    <div class="mb-3">
+    <label for="" class="form-label">Municipio</label>
+    <select class="form-control" name="municipio_id"  id="municipio">
+        @foreach($municipios as $municipio)
+            <option value="{{$municipio->id}}"> {{ $municipio->nombre_municipio }} </option>
+        @endforeach
+    </select>
+    </div>
+
     <!-- Aqui irian dos select, uno para el departamento, en donde al momento de elegir uno,
         se deben de actualizar el otro select que seria de municipios, y solo se enviaria
         el id del municipio que eligio-->

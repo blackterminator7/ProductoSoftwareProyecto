@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\models\Establecimiento;
+use App\models\Departamento;
+use App\models\Municipio;
 
 class EstablecimientoController extends Controller
 {
@@ -15,8 +17,13 @@ class EstablecimientoController extends Controller
     public function index()
     {
         $establecimientos = Establecimiento::all();
+        $departamentos = Departamento::all();
+        $municipios = Municipio::all();
         
-        return view('establecimiento.index')->with('establecimientos', $establecimientos);
+        return view('establecimiento.index')
+                    ->with('establecimientos' , $establecimientos)
+                    ->with('departamentos', $departamentos)
+                    ->with('municipios', $municipios);
     }
 
     /**
@@ -26,7 +33,14 @@ class EstablecimientoController extends Controller
      */
     public function create()
     {
-        return view('establecimiento.create');
+        $establecimientos = Establecimiento::all();
+        $departamentos = Departamento::all();
+        $municipios = Municipio::all();
+
+        return view('establecimiento.create')
+                    ->with('establecimientos' , $establecimientos)
+                    ->with('departamentos', $departamentos)
+                    ->with('municipios', $municipios);
     }
 
     /**
@@ -43,7 +57,7 @@ class EstablecimientoController extends Controller
         $establecimientos->telefono = $request->get('telefono');
         $establecimientos->encargado = $request->get('encargado');
         $establecimientos->direccion = $request->get('direccion');
-        /*$establecimientos->municipio_id = $request->get('municipio') ;*/
+        $establecimientos->municipio_id = $request->get('municipio_id') ;
 
         $establecimientos->save();
 
@@ -70,8 +84,13 @@ class EstablecimientoController extends Controller
     public function edit($id)
     {
         $establecimiento = Establecimiento::find($id);
+        $departamento = Departamento::all();
+        $municipio = Municipio::all();
 
-        return view('establecimiento.edit')->with('establecimiento', $establecimiento);
+        return view('establecimiento.edit')
+                    ->with('establecimiento' , $establecimiento)
+                    ->with('departamento', $departamento)
+                    ->with('municipio', $municipio);
     }
 
     /**
@@ -89,7 +108,7 @@ class EstablecimientoController extends Controller
         $establecimiento->telefono = $request->get('telefono');
         $establecimiento->encargado = $request->get('encargado');
         $establecimiento->direccion = $request->get('direccion');
-        /*$establecimientos->municipio_id = $request->get('municipio') ;*/
+        $establecimiento->municipio_id = $request->get('municipio_id') ;
 
         $establecimiento->save();
 

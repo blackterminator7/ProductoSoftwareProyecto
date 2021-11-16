@@ -23,7 +23,8 @@
             <th scope="col">Nombre</th>
             <th scope="col">Telefono</th>
             <th scope="col">Encargado</th>
-            <!--th scope="col">Direcciones</th-->
+            <th scope="col">Direcciones</th>
+            <th scope="col">ID Municipio</th>
             <th scope="col">Acciones</th>
         </tr>
     </thead>
@@ -35,7 +36,8 @@
             <td>{{ $establecimiento->nombre_establecimiento }}</td>
             <td>{{ $establecimiento->telefono }}</td>
             <td>{{ $establecimiento->encargado }}</td>
-            <!--<td>$establecimiento->municipio_id</td>-->
+            <td>{{ $establecimiento->direccion }}</td>
+            <td>{{ $establecimiento->municipio_id }}</td>
             <td>
                 <form action="{{ route ('establecimientos.destroy', $establecimiento->id) }}" method="POST">
                 <a href="/establecimientos/{{ $establecimiento->id }}/edit" class="btn btn-info">Editar</a>
