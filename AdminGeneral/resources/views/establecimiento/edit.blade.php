@@ -2,6 +2,11 @@
 
 @section('tittle', 'Editar')
 
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
 <h2>EDITAR REGISTROS</h2>
 <form action="/establecimientos/{{$establecimiento->id}}" method="POST">

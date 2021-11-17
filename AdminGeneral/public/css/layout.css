@@ -24,3 +24,7 @@ body {
   position:fixed;
   bottom: 0; 
 }
+
+.ocultar{
+  display: none;
+}

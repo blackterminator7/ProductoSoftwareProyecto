@@ -55,6 +55,16 @@
         <input id="empresaProveedora" name="empresaProveedora" type="text" class="form-control" tabindex="8" title="Por favor ingrese el nombre de la empresa Proveedora" required>
     </div>
 
+    <div class="mb-3">
+        <label for="" class="form-label">Inventario</label>
+        <select class="form-control" name="inventario_id"  id="inventario_id">
+            @foreach($inventarios as $inventario)
+                <option value="{{$inventario->id}}"> {{ $inventario->tipo }} </option>
+            @endforeach
+        </select>
+        </div>
+    
+
     <a href="/articulos" class="btn btn-secondary" tabindex="9">Cancelar</a>
     <button type="submit" class="btn btn-primary" tabindex="10">Guardar</button>
 

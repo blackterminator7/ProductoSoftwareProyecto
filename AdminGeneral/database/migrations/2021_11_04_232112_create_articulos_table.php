@@ -16,7 +16,7 @@ class CreateArticulosTable extends Migration
         Schema::create('articulos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
-            $table->string('descripcion', 250);
+            $table->string('descripcion', 50);      
             $table->decimal('precio', 10, 2);
             $table->integer('cantidad');
             $table->string('marca', 50);
@@ -24,6 +24,8 @@ class CreateArticulosTable extends Migration
             $table->integer('descuento');
             $table->string('empresaProveedora', 100);
             $table->timestamps();
+            $table->unsignedBigInteger('inventario_id');
+            $table->foreign('inventario_id')->references('id')->on('inventarios')->onDelete('cascade');  
         });
     }
 

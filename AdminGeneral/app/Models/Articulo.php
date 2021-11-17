@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Articulo extends Model
 {
     use HasFactory;
+
+    public function inventario(){
+        return $this->belongsTo('App\Models\Inventarios');
+    }
+
+    public function scopebuscarpor($query,$tipo,$texto){
+
+        if(($tipo)&&($texto))
+        {
+            return $query->where($tipo,'LIKE','%'.$texto.'%')->get();
+        }
+        return $query->select('id','nombre','descripcion','precio','cantidad','marca','imagen','descuento','empresaProveedora', 'inventario_id')->get();
+    }
 }

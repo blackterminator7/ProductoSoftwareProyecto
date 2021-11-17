@@ -1,5 +1,12 @@
 @extends('layouts.plantillabase')
 
+@section('tittle', 'Editar')
+
+@section('import')
+    <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+    <script type="text/javascript" src="{{ asset('js/nav.js') }}"></script>
+@endsection
+
 @section('contenido')
 <h2>EDITAR REGISTROS DE RESPUESTOS</h2>
 
@@ -49,9 +56,14 @@
         <input id="empresaProveedora" name="empresaProveedora" type="text" class="form-control" tabindex="8" value="{{$articulo->empresaProveedora}}" title="Por favor ingrese el nombre de la empresa Proveedora" required>
     </div>
     
-
-   
-
+    <div class="mb-3">
+        <label for="" class="form-label">Inventario</label>
+        <select class="form-control" name="inventario_id"  id="inventario_id">
+            @foreach($inventario as $invent)
+                <option value="{{$invent->id}}"> {{ $invent->tipo }} </option>
+            @endforeach
+        </select>
+    </div>
     
 
    
