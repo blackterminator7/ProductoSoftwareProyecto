@@ -43,6 +43,7 @@ class ArticuloController extends Controller
         $articulos->cantidad = $request->get('cantidad');
         $articulos->marca = $request->get('marca');
     //Proceso para guardar imagen
+    $request->validate(['imagen' =>'required|image']);
       if($request->hasFile('imagen')){
         $file = $request->file('imagen');
         $destino = 'imagenesRepuestos/';
@@ -101,6 +102,7 @@ class ArticuloController extends Controller
         $articuloss->cantidad = $request->get('cantidad');
         $articuloss->marca = $request->get('marca');
         //Proceso para guardar imagen
+         $request->validate(['imagen' =>'required|image']);
       if($request->hasFile('imagen')){
         $file = $request->file('imagen');
         $destino = 'imagenesRepuestos/';
