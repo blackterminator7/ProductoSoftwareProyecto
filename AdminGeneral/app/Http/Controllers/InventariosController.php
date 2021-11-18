@@ -17,10 +17,10 @@ class InventariosController extends Controller
     {
         $inventarios = Inventario::all();
         $establecimientos = Establecimiento::all();
+        //$inventarios = Establecimiento::get();
 
-        return view('inventario.index')
-                    ->with('inventarios' , $inventarios)
-                    ->with('establecimientos', $establecimientos);
+        return view('inventario.index')->with('inventarios', $inventarios)
+        ->with('establecimientos', $establecimientos);
     } 
 
     /**

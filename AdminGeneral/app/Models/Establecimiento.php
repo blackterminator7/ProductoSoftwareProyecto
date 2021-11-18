@@ -9,4 +9,9 @@ class Establecimiento extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre_establecimiento', 'telefono', 'encargado', 'direccion' ];
+
+    public function inventarios()
+    {
+        return $this->hasMany('App\Models\Inventario');
+    }
 }

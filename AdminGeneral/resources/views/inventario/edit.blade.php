@@ -14,11 +14,11 @@
     @method('PUT')
     <div class="mb-3">
         <label for="" class="form-label">Tipo</label>
-        <input id="tipo" name="tipo" type="text" class="form-control" value="{{$inventario->tipo}}" tabindex="1">
+        <input id="tipo" name="tipo" type="text" class="form-control" value="{{$inventario->tipo}}" tabindex="1" title="Ingrese un tipo de inventario" required>
     </div>
 
     <div class="mb-3">
-    <select class="form-control" name="establecimiento_id"  id="establecimiento_id">
+    <select class="form-control" name="establecimiento_id"  id="establecimiento_id" title="Seleccione un establecimiento" required>
         @foreach($establecimiento as $est)
             <option value="{{$est->id}}"> {{ $est->nombre_establecimiento }} </option>
         @endforeach
