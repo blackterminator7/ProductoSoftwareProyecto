@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Inventario;
 use App\Models\Establecimiento;
+Use DB;
 
 class InventariosController extends Controller
 {
@@ -14,13 +15,9 @@ class InventariosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $inventarios = Inventario::all();
-        $establecimientos = Establecimiento::all();
-        //$inventarios = Establecimiento::get();
-
-        return view('inventario.index')->with('inventarios', $inventarios)
-        ->with('establecimientos', $establecimientos);
+    {   
+        $establecimientos = Establecimiento::with('inventarios')->get();
+        return view('inventario.index' , compact('establecimientos'));
     } 
 
     /**

@@ -19,6 +19,7 @@
 
     <div class="mb-3">
     <select class="form-control" name="establecimiento_id"  id="establecimiento_id" title="Seleccione un establecimiento" required>
+        <option value="" selected disabled>--Seleccione un establecimiento--</option>
         @foreach($establecimiento as $est)
             <option value="{{$est->id}}"> {{ $est->nombre_establecimiento }} </option>
         @endforeach
@@ -26,7 +27,7 @@
     </div>
     
     <a href="/inventarios" class="btn btn-secondary" tabindex="4">Cancelar</a>
-    <button type="submit" class="btn btn-primary" tabindex="3">Guardar</button>
+    <button type="submit" onclick="if (!confirm('¿Desea realizar los cambios?')) { return false }" class="btn btn-primary" tabindex="3">Guardar</button>
 </form>
 
 @endsection

@@ -26,11 +26,11 @@
     </thead>
 
     <tbody>
-        @foreach ($inventarios as $inventario)
+        @foreach ($establecimientos as $establecimiento)
+        @foreach ($establecimiento->inventarios as $inventario)
         <tr>
             <td>{{ $inventario->tipo }}</td>
-            <td>{{ $inventario->establecimiento_id}}</td>
-
+            <td>{{ $establecimiento->nombre_establecimiento}}</td>
             <td>
                 <form action="{{ route ('inventarios.destroy', $inventario->id) }}" method="POST">
                 <a href="/inventarios/{{ $inventario->id }}/edit" class="btn btn-info">Editar</a>
@@ -40,6 +40,7 @@
                 </form>
             </td>
         </tr>
+        @endforeach
         @endforeach
     </tbody>
 
