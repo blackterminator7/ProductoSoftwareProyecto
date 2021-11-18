@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EstablecimientoController;
 use App\Http\Controllers\ArticuloController;
 
+use App\Http\Controllers\ConexionController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +27,6 @@ Route::get('/login', LoginController::class);
 //Route::resource('articulos', 'App\Http\Controllers\ArticuloController');
 Route::resource('/articulos', ArticuloController::class);
 Route::resource('inventarios', 'App\Http\Controllers\InventariosController');
+
+Route::resource('conexion', 'App\Http\Controllers\ConexionController');
+Route::post('/conexion/conectar', [ConexionController::class, 'conectar']);

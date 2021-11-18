@@ -14,6 +14,10 @@
                 <a class="nav-link" href="{{ url('/') }}"><i class="fas fa-home"></i>Inicio</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ url('/conexion') }}"><i class="fas fa-building"></i>Conexion
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0);"><i class="fas fa-grip-horizontal"></i>Catalogo</a>
             </li>
             <li class="nav-item">
