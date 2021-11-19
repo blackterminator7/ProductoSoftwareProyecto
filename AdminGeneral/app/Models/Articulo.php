@@ -11,10 +11,13 @@ class Articulo extends Model
 
     public function scopebuscarpor($query,$tipo,$texto){
 
-        if(($tipo)&&($texto))
+        
+        
+        if(($tipo!="Buscar Por")&&($texto))
         {
             return $query->where($tipo,'LIKE','%'.$texto.'%')->get();
         }
+
         return $query->select('id','nombre','descripcion','precio','cantidad','marca','imagen','descuento','empresaProveedora')->get();
-    }
+}
 }
